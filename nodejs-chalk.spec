@@ -8,7 +8,7 @@
 
 Name:       %{?scl_prefix}nodejs-chalk
 Version:    1.1.1
-Release:    3%{?dist}
+Release:    7%{?dist}
 Summary:    Terminal string styling done right
 License:    MIT
 Group:      System Environment/Libraries
@@ -23,7 +23,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 ExclusiveArch: %{ix86} x86_64 %{arm} noarch
 %endif
 
-BuildRequires:  nodejs010-runtime
+BuildRequires:  %{?scl_prefix}runtime
 
 %if 0%{?enable_tests}
 BuildRequires:  %{?scl_prefix}npm(mocha)
@@ -69,6 +69,18 @@ cp -pr package.json index.js \
 %{nodejs_sitelib}/chalk
 
 %changelog
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.1.1-7
+- Use proper macro in -runtime dependency
+
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.1.1-6
+- Use proper macro in -runtime dependency
+
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.1.1-5
+- Use proper macro in -runtime dependency
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 1.1.1-4
+- rebuilt
+
 * Wed Jan 06 2016 Tomas Hrcka <thrcka@redhat.com> - 1.1.1-3
 - Enable scl macros
 
